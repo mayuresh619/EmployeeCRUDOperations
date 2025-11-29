@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using ServiceApi.Model;
+using ServiceApi.Service;
 
 namespace ServiceApi.Controllers
 {
@@ -7,7 +9,11 @@ namespace ServiceApi.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        public EmployeeController() { }
+        IEmployeeOperationsService _employeeOperationsService;
+        public EmployeeController(IEmployeeOperationsService employeeOperationsService) 
+        {
+            _employeeOperationsService = employeeOperationsService;
+        }
 
         [HttpGet]
         [Route("GetEmp")]
@@ -15,12 +21,26 @@ namespace ServiceApi.Controllers
             if (username == null || password == null)
                 return BadRequest("Enter valid data");
 
-            if(username == "Mayuresh" && password == "123456")
+            if(_employeeOperationsService.FetchEmployeeData(username,password))
             {
                 return Ok("Valid User");
             }
 
-            return Ok("Invalid user");
+            return NotFound("Invalid user");
+        }
+
+        [HttpPost]
+        [Route("RegisterEmployee")]
+        public IActionResult RegisterEmployeeData(EmployeeRegisterRequest request)
+        {
+            if (request == null)
+                return BadRequest("Invalid Data");
+
+            if(_employeeOperationsService.RegisterEmployee(request))
+            {
+                return Ok("Registered");
+            }
+            return BadRequest();
         }
     }
 }

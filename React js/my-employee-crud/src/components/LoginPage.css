@@ -61,3 +61,90 @@ font-size: 14px;
 color: #007bff;
 text-decoration: none;
 }
+
+/* --- Existing Login Form Container Styles (Ensure you have these) --- */
+.container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+.container input, .container button, .modal-content input, .modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box; /* Important for padding/width calculation */
+}
+.register a {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+/* --- Modal Styles --- */
+
+/* The dark overlay that covers the entire screen */
+.modal-backdrop {
+    position: fixed; /* Stay in place even when scrolling */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The actual modal box */
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more specific, e.g., 400px */
+    max-width: 400px; /* Max width to prevent it from getting too wide */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Modal Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+/* CAPTCHA Specific Styles */
+.captcha-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.captcha-display {
+    background-color: #eee;
+    padding: 8px;
+    border: 1px dashed #aaa;
+    flex-grow: 1; /* Allows it to take up available space */
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+.captcha-container input {
+    flex-basis: 50%; /* Make the input take about half the space */
+    margin: 0; /* Remove default margin */
+}
+
+.captcha-container button {
+    width: auto;
+    padding: 8px;
+    margin: 0; /* Remove default margin */
+}
