@@ -10,5 +10,9 @@ namespace ServiceApi.Helpers
         Task<EmployeeTable> GetEmployeeByIdandPasswordAsync(string userName, string password);
 
         Task<int> AddEmployeeAsync(EmployeeRegisterRequest user);
+
+        Task<int> UpdateEmployeeAsync(EmployeeUpdateRequest user);
+
+        Task<int> DeleteEmployee(int id);
     }
 }

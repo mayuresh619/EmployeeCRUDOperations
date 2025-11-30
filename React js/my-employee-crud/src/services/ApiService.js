@@ -38,6 +38,52 @@ import * as consts from '../Constants';
     } catch (error) {
         console.error('Error registering data:', error);
         throw error;
-    }
-    
+    } 
+  };
+
+  export const getEmployeeList = async () => {
+        try{
+        const endpoint = 'GetEmpList';
+        const url = consts.API_url + '/' +endpoint;
+        const response = await axios.get(url);
+
+        return response.data;
+    } catch (error) {
+        console.error('Error registering data:', error);
+        throw error;
+    }     
   }
+
+  export const updateEmployee = async (employeeToUpdate) => {
+    try{
+        const endpoint = 'UpdateEmployee';
+        const url = consts.API_url + '/' +endpoint;
+        
+        const requestBody = employeeToUpdate;
+
+        const response = await axios.patch(url, requestBody);
+
+        return response.data;
+    } catch (error) {
+        console.error('Error registering data:', error);
+        throw error;
+    } 
+  }
+
+    export const deleteEmployee = async (empId) => {
+      try{
+        const endpoint = 'DeleteEmployee';
+        const url = consts.API_url + '/' +endpoint;
+        const response = await axios.delete(url,{
+           params: {
+            empId: empId, 
+          }
+        });
+
+        return response.data;
+
+      } catch (error) {
+        console.error('Error registering data:', error);
+        throw error;
+    }     
+    }

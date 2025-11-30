@@ -1,4 +1,6 @@
-﻿namespace ServiceApi.Model.DBModels
+﻿using System.Text.Json.Serialization;
+
+namespace ServiceApi.Model.DBModels
 {
     public class EmployeeTable
     {
@@ -7,6 +9,7 @@
 
         public string Emp_EmailId { get; set; }
 
+        [JsonIgnore]
         public string Emp_Password { get; set; }
     }
 }

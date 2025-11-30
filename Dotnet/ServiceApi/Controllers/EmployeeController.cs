@@ -29,6 +29,18 @@ namespace ServiceApi.Controllers
             return NotFound("Invalid user");
         }
 
+        [HttpGet]
+        [Route("GetEmpList")]
+        public IActionResult FetchEmployeeList()
+        {
+
+            var result = _employeeOperationsService.FetchEmployeeList();
+            if(result !=  null)
+                return Ok(result);
+            
+            return BadRequest("Invalid Data");
+        }
+
         [HttpPost]
         [Route("RegisterEmployee")]
         public IActionResult RegisterEmployeeData(EmployeeRegisterRequest request)
@@ -40,6 +52,36 @@ namespace ServiceApi.Controllers
             {
                 return Ok("Registered");
             }
+            return BadRequest();
+        }
+
+        [HttpPatch]
+        [Route("UpdateEmployee")]
+        public IActionResult UpdateEmployee(EmployeeUpdateRequest request)
+        {
+            if (request == null)
+                return BadRequest("Invalid Data");
+
+            if(_employeeOperationsService.UpdateEmployee(request))
+            {
+                return Ok("Updated");
+            }
+
+            return BadRequest();
+        }
+
+        [HttpDelete]
+        [Route("DeleteEmployee")]
+        public IActionResult DeleteEmployee(int empId)
+        {
+            if (empId <= 0)
+                return BadRequest("Invalid Employee Id");
+
+            if (_employeeOperationsService.DeleteEmployee(empId))
+            {
+                return Ok("Deleted");
+            }
+
             return BadRequest();
         }
     }

@@ -32,5 +32,20 @@ namespace ServiceApi.Helpers
             return await _db.ExecuteAsync(sql, new { UserName = user.UserName, Email = user.EmailId , Password = user.Password });
         }
 
+        public async Task<int> UpdateEmployeeAsync(EmployeeUpdateRequest user)
+        {
+            string sql = @"UPDATE EmployeeTable 
+                       SET Emp_UserName = @UserName, Emp_EmailId = @Email 
+                       WHERE Emp_Id = @Id";
+
+            return await _db.ExecuteAsync(sql, new { UserName = user.Emp_UserName, Email = user.Emp_EmailId, Id = user.Emp_Id });
+        }
+
+        public async Task<int> DeleteEmployee(int id)
+        {
+            string sql = "DELETE FROM EmployeeTable WHERE Emp_Id = @Id";
+
+            return await _db.ExecuteAsync(sql, new { Id = id });
+        }
     }
 }
