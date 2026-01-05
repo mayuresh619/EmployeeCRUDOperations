@@ -1,0 +1,65 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.login-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+
+  h2 { margin-bottom: 0.5rem; color: #333; }
+  p { color: #666; margin-bottom: 2rem; font-size: 0.9rem; }
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 1.5rem;
+
+  label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444; }
+  
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box; // Ensures padding doesn't break width
+    transition: border-color 0.3s;
+
+    &:focus { outline: none; border-color: #764ba2; }
+    &.error { border-color: #ff4d4d; }
+  }
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #764ba2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:disabled { background-color: #ccc; cursor: not-allowed; }
+  &:hover:not(:disabled) { background-color: #5a378c; }
+}
+
+.footer-links {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  
+  a { color: #764ba2; text-decoration: none; &:hover { text-decoration: underline; } }
+}

@@ -1,0 +1,61 @@
+/* Container padding and font */
+:host {
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px;
+}
+
+h2 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/* Form Group Layout */
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Matching your Login Input style */
+input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+/* Action Buttons */
+mat-dialog-actions {
+  padding: 15px 0 0 0;
+}
+
+button[mat-raised-button] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+button[mat-button] {
+  text-transform: none;
+  color: #777;
+}

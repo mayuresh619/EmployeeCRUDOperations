@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Employee Directory</h2>
+  
+  <table class="employee-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.emp_Id }}</td>
+        <td>{{ emp.emp_UserName }}</td>
+        <td>{{ emp.emp_EmailId }}</td>
+        <td>
+          <button class="btn-edit" (click)="onEdit(emp)">Update</button>
+          <button class="btn-delete" (click)="onDelete(emp.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
