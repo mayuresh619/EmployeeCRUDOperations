@@ -26,7 +26,19 @@ export class EmployeeService {
   }
 
   deleteEmployee(id:number): Observable<any>{
-     const url = `${this.apiUrl}/DeleteEmployee`;
+     const url = `${this.apiUrl}/DeleteEmployee?empId=${id}`;
     return this.http.delete(url);
   }
+
+  updateEmployee(employee: any): Observable<any> {
+  const employeeToUpdate = {
+      Emp_Id: employee.emp_Id,
+      Emp_UserName: employee.emp_UserName,
+      Emp_EmailId: employee.emp_EmailId
+    };
+  const url = `${this.apiUrl}/UpdateEmployee`; 
+  return this.http.patch(url, employeeToUpdate,{ 
+    responseType: 'text' 
+  });
+}
 }

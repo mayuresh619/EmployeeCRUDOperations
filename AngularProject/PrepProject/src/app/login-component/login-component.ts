@@ -30,7 +30,6 @@ export class LoginComponent {
         this.router.navigate(['/home']);
       },
       error: (error) => {
-        // Error: Invalid credentials or server down
         console.error('Login failed', error);
         alert('Invalid email or password. Please try again.');
       }
@@ -41,7 +40,6 @@ export class LoginComponent {
   openSignUp(): void {
     this.dialog.open(SignUp, {
       width: '400px',
-      // Optional: Pass data or disable closing on backdrop click
     });
   }
 

@@ -17,9 +17,25 @@
         <td>{{ emp.emp_EmailId }}</td>
         <td>
           <button class="btn-edit" (click)="onEdit(emp)">Update</button>
-          <button class="btn-delete" (click)="onDelete(emp.id)">Delete</button>
+          <button class="btn-delete" (click)="onDelete(emp.emp_Id)">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
+  <div class="modal-overlay" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <h3>Edit Employee</h3>
+    
+    <label>Name:</label>
+    <input [(ngModel)]="selectedEmployee.emp_UserName" type="text" />
+
+    <label>Email:</label>
+    <input [(ngModel)]="selectedEmployee.emp_EmailId" type="email" />
+
+    <div class="modal-actions">
+      <button (click)="updateEmployee()" class="btn-save">Save Changes</button>
+      <button (click)="closeModal()" class="btn-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
 </div>
